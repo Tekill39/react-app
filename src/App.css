@@ -9,23 +9,7 @@
   margin: 0 auto;
   width: 1200px;
 }
-.header{
-  grid-area:h;
-  background-color: rgb(198, 201, 224);
-}
-/* .header img{
-  min-height: 100vh;
-} */
 
-.nav{
-  grid-area:n;
-  background-color: rgb(110, 107, 114);
-}
-.nav a{
-  color: white;
-}
 
-.content{
-  grid-area:c;
-  background-color: burlywood;
-}
+
+

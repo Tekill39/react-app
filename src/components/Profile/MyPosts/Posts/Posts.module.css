@@ -1,0 +1,29 @@
+.content{
+    grid-area:c;
+    background-color: burlywood;
+  }
+  .item{
+      color: rgb(38, 0, 255);
+      font-weight: 900;
+  }
+ 
+ .item img {
+     height:50px;
+     border-radius: 20px;
+     margin-top: 10px;
+ }
+ .btn{
+background-color: rgb(152, 153, 226);
+color: white;
+border-radius: 3px;
+border: none;
+width: 50px;
+ }
+ .btn:hover{
+    background-color: rgb(245, 248, 247);
+    color: rgb(20, 18, 18);
+    border: none;
+ }    
+ .posts{
+     
+ } 

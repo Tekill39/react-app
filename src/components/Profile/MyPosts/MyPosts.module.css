@@ -1,0 +1,10 @@
+.content{
+    grid-area:c;
+    background-color: burlywood;
+  }
+  .posts_title{
+    color: saddlebrown;
+    
+    font-weight: 800;
+    margin-top: 20px;
+  }
