@@ -2,12 +2,12 @@
     grid-area:c;
     background-color: burlywood;
   }
-  .item{
+  .itemPosts{
       color: rgb(38, 0, 255);
       font-weight: 900;
   }
  
- .item img {
+ .itemPosts img {
      height:50px;
      border-radius: 20px;
      margin-top: 10px;

@@ -1,0 +1,22 @@
+.dialogs {
+    display: grid;
+    grid-template-areas:
+    "d m"; 
+    grid-template-rows: 100px 10fr;
+    grid-template-columns: 2fr  4fr;
+    /* grid-gap: 10px; */
+    margin: 0 auto;
+    /* width: 1200px; */
+    .dialogsItem {
+        grid-area:d;
+        .dialog {
+
+        }
+    }
+    .messages {
+        grid-area:m;
+        .message{
+
+        }
+    }
+}
