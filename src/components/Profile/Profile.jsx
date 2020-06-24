@@ -1,15 +1,13 @@
 import React from 'react';
 import classes from './Profile.module.css';
 import MyPosts from './MyPosts/MyPosts';
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
 const Profile = () => {
     return (
         <div >
-            <div>
-                <img src='https://www.electrive.com/wp-content/uploads/2018/06/byd-adl-enviro400ev-elektrobus-electric-bus-london.png' />
-            </div>
-            <div>Ava + description</div>
-           <MyPosts />
+            <ProfileInfo />
+            <MyPosts />
         </div>
     );
 }
