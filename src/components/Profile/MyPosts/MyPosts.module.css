@@ -1,10 +1,30 @@
-.content{
-    grid-area:c;
-    background-color: burlywood;
-  }
-  .posts_title{
-    color: saddlebrown;
-    
-    font-weight: 800;
-    margin-top: 20px;
-  }
+.content {
+  grid-area: c;
+  background-color: burlywood;
+}
+
+.posts_title {
+  color: saddlebrown;
+
+  font-weight: 800;
+  margin-top: 20px;
+}
+
+.bat {
+  margin-left:10px ;
+  background-color: rgb(231, 15, 105);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  
+}
+
+.bat:hover,
+.bat:focus
+.bat:active {
+  background-color: rgb(245, 248, 247);
+  color: rgb(20, 18, 18);
+  border: none;
+}
