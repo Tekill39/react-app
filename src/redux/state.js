@@ -32,20 +32,24 @@ dialogsPage:{
 ]
 }
 }
-export let addPost = (postMessage) => {
+export const addPost = () => {
   let newPost = {
     id:5,
-    message:postMessage,
+    message:state.profilePage.newPostText,
     likesCount:0  
   };
 
   state.profilePage.posts.push(newPost);
+  // state.profilePage.newPostText='';
   rendererMainThree(state);
 }
-export let updateNewPostText = (newText) => {
+export const updateNewPostText = (newText) => {
   state.profilePage.newPostText=newText;
   rendererMainThree(state);
 }
 
+export const subscribe = (observer)=> {
+rendererMainThree = observer;
+}
 
 export default state;

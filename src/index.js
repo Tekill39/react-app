@@ -1,9 +1,10 @@
 
-
+import*as serviceWorker from './serviceWorker';  
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import state, { subscribe } from './redux/state';
 
 import {addPost, updateNewPostText} from './redux/state';
 import { BrowserRouter } from 'react-router-dom';
@@ -19,6 +20,7 @@ let rendererMainThree = (state) =>{
 
 
 rendererMainThree(state);
+subscribe(rendererMainThree);
 
 
 serviceWorker.unregister();

@@ -5,18 +5,15 @@ import Posts from './Posts/Posts'
 const MyPosts = (props) => {
     let PostsElements = props.posts.map(p => <Posts message={p.message} likesCount={p.likesCount} />);
 
-    let newPostElement=React.createRef();
+    let newPostElement = React.createRef();
    
-    let addPost = ()=> {
-       
-        let text = newPostElement.current.value;
-        props.addPost(text);
-        props.updateNewPostText ('');
-    
+    let addPost = () => {
+        props.addPost();  
     }
+
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.updateNewPostText();
+        props.updateNewPostText(text);
     }
 
     return (
@@ -27,7 +24,7 @@ const MyPosts = (props) => {
                 <div>My post</div>
                 <div>
                     <div>
-                        <textarea ref={newPostElement}></textarea>
+                        <textarea onChange={onPostChange} ref={newPostElement}></textarea>
                     </div>
                     <div>
                         <button className={classes.bat} onClick = {addPost }>Add post</button>
