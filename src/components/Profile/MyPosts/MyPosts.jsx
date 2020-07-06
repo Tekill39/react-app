@@ -24,7 +24,8 @@ const MyPosts = (props) => {
                 <div>My post</div>
                 <div>
                     <div>
-                        <textarea onChange={onPostChange} ref={newPostElement}></textarea>
+                        <textarea onChange={onPostChange} ref={newPostElement} 
+                        value={props.newPostText} />
                     </div>
                     <div>
                         <button className={classes.bat} onClick = {addPost }>Add post</button>
