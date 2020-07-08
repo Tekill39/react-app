@@ -72,28 +72,33 @@ let store = {
   getState() {
     return this._state;
   },
-  _callSubscrible(){
+  _callSubscrible() {
     console.log('State changed');
   },
-  addPost() {
-    let newPost = {
-      id: 5,
-      message: this._state.profilePage.newPostText,
-      likesCount: 0
-    };
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5,
+        message: this._state.profilePage.newPostText,
+        likesCount: 0
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscrible(this._state);
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
 
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscrible(this._state);
-  },
-  updateNewPostText(newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscrible(this._state);
-  },
-  subscribe(observer) {
-    this._callSubscrible = observer;
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscrible(this._state);
+    }
   }
 }
+export const addPostActionCreator = () => ({type: 'ADD-POST'})
+
+export const updateoNewPostTextActionCreator = (text) => ({
+      type: 'UPDATE-NEW-POST-TEXT', newText:text
+  })
+
+
 
 export default store;
 window.store = store;
