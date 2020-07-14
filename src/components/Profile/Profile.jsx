@@ -14,5 +14,5 @@ const Profile = (props) => {
         </div>
     );
 }
-// tect
+
 export default Profile;
