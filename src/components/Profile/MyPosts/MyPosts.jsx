@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from './MyPosts.module.css';
 import Posts from './Posts/Posts';
-import {addPostActionCreator,updateoNewPostTextActionCreator} from '../../../redux/state';
+import { addPostActionCreator, updateoNewPostTextActionCreator } from '../../../redux/profile-reducer';
 
 
 const MyPosts = (props) => {
@@ -18,7 +18,6 @@ const MyPosts = (props) => {
         let action = updateoNewPostTextActionCreator(text);
         props.dispatch(action);
     }
-   
 
     return (
         <div className={classes.content}>
