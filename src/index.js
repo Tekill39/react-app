@@ -6,16 +6,16 @@ import './index.css';
 import App from './App';
 import store from './redux/redux-store';
 import { BrowserRouter } from 'react-router-dom';
-import StoreContext from './StoreContext'
+import {Provider} from 'react-redux'
 
 
 let rendererMainThree = (state) =>{
   
   ReactDOM.render(
   <BrowserRouter>
-  <StoreContext.Provider value = {store}>
+  <Provider store = {store}>
     <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
-  </StoreContext.Provider>  
+  </Provider>  
   </BrowserRouter>,document.getElementById('root'));
   }
 
