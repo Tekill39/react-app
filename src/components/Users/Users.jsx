@@ -4,18 +4,27 @@ import * as axios from 'axios';
 import userPhoto from '../../assets/img/users.png';
 
 class Users extends React.Component {
-    constructor(props) {
-        super(props);
-        alert('NEW');
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
 
+    componentDidMount() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items);
         });
-
     }
     render() {
-        return <div>
+        let pagesCount = Math.ceil(this.totalUsersCount / this.props.pageSize);
+        let pages = [];
+        for (let i = 1; i <= pagesCount; i++) {
+            pages.push(i);
+        }
 
+        return <div>
+            
+            <div>
+                { pages.map(p => {
+                    return <span className={this.props.currentPage === p && styles.selectPage}
+                    onClick = { () =>{ this.props.setCurrentPage (p) }}>{p}test</span> 
+                })}
+            </div>
             {
                 this.props.users.map(u => <div key={u.id}>
                     <span>
@@ -41,7 +50,6 @@ class Users extends React.Component {
             }
         </div>
     }
-
 }
 
 export default Users;
