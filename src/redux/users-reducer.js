@@ -48,7 +48,8 @@ let initialState = {
             return {...state, totalUsersCount:action.count}
         }
         case TOGGLE_IS_FETCHING:{
-            return {...state, isFetching:action.count}
+            debugger;
+            return {...state, isFetching:action.isFetching}
         }
         default:
             return state;

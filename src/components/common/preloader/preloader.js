@@ -4,7 +4,7 @@ import preloaderPhoto from '../../../assets/img/805.svg';
 
 let Preloader=(props)=>{
 
-return <div style = { {backgroundColor:'white'}}>
+return <div >
             <img src={preloaderPhoto} />
         </div>
 }
