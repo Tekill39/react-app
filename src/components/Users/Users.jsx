@@ -34,7 +34,9 @@ let Users = (props) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button onClick={() => {
+                            ? <button disabled={props.followingIsProgress.some(id=>id===u.id)} onClick={() => {
+                                debugger
+                                props.toggleFollovingProgress(true, u.id);
                                 axios.delete(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
                                     {
                                         withCredentials: true,
@@ -46,11 +48,13 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.unfollow(u.id);
                                         }
+                                        props.toggleFollovingProgress(false, u.id);
                                     });
 
                             }}>Unfollow</button>
-                            : <button onClick={() => {
-                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
+                            : <button disabled={props.followingIsProgress.some(id=>id===u.id)} onClick={() => {
+                                props.toggleFollovingProgress(true, u.id);
+                                axios.post(`https://social-network.samuraijs.com/api/1.0/follow/${u.id}`, {},
                                     {
                                         withCredentials: true,
                                         headers: {
@@ -61,6 +65,7 @@ let Users = (props) => {
                                         if (response.data.resultCode == 0) {
                                             props.follow(u.id);
                                         }
+                                    props.toggleFollovingProgress(false, u.id);
                                     });
                             }}>Follow</button>}
                     </div>
