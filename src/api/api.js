@@ -1,6 +1,6 @@
 import * as axios from 'axios';
 
-const instanse =axios.create({
+const instanse = axios.create({
     withCredentials: true,
     baseURL:'https://social-network.samuraijs.com/api/1.0/',
     headers:{
@@ -17,3 +17,4 @@ return instanse.get(`users?page=${currentPage}&count=${pageSize}`)
 });
 }
 }
+
