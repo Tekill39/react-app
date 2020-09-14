@@ -21,10 +21,10 @@ export const usersApi = {
     },
     unfollow(userId) {
         return instanse.delete(`follow/${userId}`)
-    }    
+    }
 }
 
-export const ProfileApi ={
+export const ProfileApi = {
     getProfile(userId) {
         return instanse.get(`profile/` + userId);
     },
@@ -32,11 +32,23 @@ export const ProfileApi ={
         return instanse.get(`profile/status/` + userId);
     },
     updateStatus(status) {
-        return instanse.put(`profile/status/`,{status:status});
+        return instanse.put(`profile/status/`, {
+            status: status
+        });
     }
 }
 export const authApi = {
-    me(){
-    return instanse.get(`auth/me`) 
-}
+    me() {
+        return instanse.get(`auth/me`)
+    },
+    login(email, password, rememberMe = false) {
+        return instanse.post(`auth/login`, {
+            email,
+            password,
+            rememberMe
+        });
+    },
+    logout() {
+        return instanse.delete(`auth/login`);
+    }
 }
