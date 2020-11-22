@@ -28,7 +28,7 @@ let initialState = {
 export const setAuthUserData  = (userId,email,login,isAuth) => ({type: SET_USER_DATA,payload:{userId,email,login,isAuth}})
 
 export const getAuthUserData  = () => (dispatch)=> {
-    authApi.me()
+   return authApi.me()
     .then(response => {
         if (response.data.resultCode === 0) {
             let {id,login,email}=response.data.data;
