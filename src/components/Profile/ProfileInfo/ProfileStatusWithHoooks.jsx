@@ -21,7 +21,7 @@ const ProfileStatusWithHoooks = (props) => {
     }
     const deactivateEditMode = () => {
         setEditMode(false);
-        props. &(status);
+        props.updateStatus(status);
     }
 
     const onStatusChange = (e) => {
