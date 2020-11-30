@@ -2,27 +2,17 @@ import React from 'react';
 import userPhoto from '../../assets/img/users.png';
 import styles from './users.module.css';
 import { NavLink } from 'react-router-dom';
+import Paginator from './Paginator';
 
-
-let Users = (props) => {
-
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i);
-    }
+let Users = ({currentPage, onPageChanged, totalUsersCount, pageSize,users,  ...props}) => {
 
     return <div>
 
-        <div>
-            {pages.map(p => {
-                return <span className={props.currentPage === p && styles.selectPage}
-                    onClick={() => { props.onPageChanged(p) }}>{p}</span>
-            })}
-
-        </div>
+        <Paginator currentPage={currentPage} onPageChanged={onPageChanged}
+            totalUsersCount={totalUsersCount}
+            pageSize={pageSize} />
         {
-            props.users.map(u => <div key={u.id}>
+            users.map(u => <div key={u.id}>
                 <span>
 
                     <div>
@@ -32,11 +22,9 @@ let Users = (props) => {
                     </div>
                     <div>
                         {u.followed
-                            ? <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => 
-                                {props.unfollow(u.id)}}>
-                                    Unfollow</button>
-                            : <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => 
-                                {props.follow(u.id)}}
+                            ? <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => { props.unfollow(u.id) }}>
+                                Unfollow</button>
+                            : <button disabled={props.followingIsProgress.some(id => id === u.id)} onClick={() => { props.follow(u.id) }}
                             >Follow</button>}
                     </div>
                 </span>
@@ -51,7 +39,7 @@ let Users = (props) => {
                     </span>
                 </span>
             </div>)
-}
+        }
     </div >
 }
 

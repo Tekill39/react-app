@@ -6,3 +6,4 @@ return items.map(u => {
     return u;
 })
 } 
+export default updateObjectInArray;
