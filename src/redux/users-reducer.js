@@ -2,6 +2,7 @@ import {
     usersApi
 } from '../api/api';
 import updateObjectInArray from './../utils/validators/object-helpers';
+import cn from "classnames";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -16,7 +17,7 @@ const TOGGLE_IS_FOLLOWING_PROGRESS = 'TOGGLE_IS_FOLLOWING_PROGRESS';
 let initialState = {
     users: [],
     totalUsersCount: 0,
-    pageSize: 10,
+    pageSize: 15,
     currentPage: 1,
     isFetching: true,
     followingIsProgress: []
