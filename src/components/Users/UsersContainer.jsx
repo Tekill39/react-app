@@ -15,18 +15,12 @@ import { getPageSize, getTotalUsersCount,requireUsers,getCurrentPage,getIsFetchi
 class UsersContainer extends React.Component {
 
     componentDidMount() {
-        this.props.getUsers(this.props.currentPage, this.props.pageSize);
-        // this.props.toggleIsFetching(true);
-
-        // usersApi.getUsers(this.props.currentPage, this.props.pageSize)
-        // .then(data => {
-        //     this.props.toggleIsFetching(false);
-        //     this.props.setUsers(data.items);
-        //     this.props.setTotalUsersCount(data.totalCount);
-        // });
-    }
+    const {currentPage,pageSize}=this.props;    
+        this.props.getUsers(currentPage,pageSize);
+   }
     onPageChanged = (pageNumber) => {
-        this.props.getUsers(pageNumber, this.props.pageSize);        
+        const {pageSize} = this.props;
+        this.props.getUsers(pageNumber, pageSize);        
     }
 
     render() {
