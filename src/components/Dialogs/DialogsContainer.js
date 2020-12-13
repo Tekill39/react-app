@@ -1,6 +1,3 @@
-import React from 'react';
-import Message from './Message/Message';
-import DialogItem from './DialogsItem/DialogsItem';
 import {sendMessageCreator} from '../../redux/dialogs-reducer';
 import Dialogs from './Dialogs'
 import { connect } from 'react-redux';
