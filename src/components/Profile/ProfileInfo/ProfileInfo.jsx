@@ -8,7 +8,7 @@ import setEditMode from '../ProfileInfo/ProfileStatusWithHoooks';
 import ProfileDataForm from './ProfileDataForm';
 
 
-const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
+const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, safeProfile}) => {
 
     if (!profile) {
         return <Preloader />
@@ -18,24 +18,31 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto }) => {
             savePhoto(e.target.files[0]);
         }
     }
-    return (
-        <div className={classes.info}>
+    const onSubmit = (formData) => {
+        safeProfile(formData);
+        }
+        
+    
+    return <div className={classes.info}>
             <img src={profile.photos.large || userPhoto} />
             {isOwner && <input type={"file"} onChange={onMainFotoSelected} />}
 
             {editMode
-                ? <ProfileDataForm profile={profile} />
-                : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} />}
+                ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
+                : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner}/>}
 
             <ProfileStatusWithHoooks status={status} updateStatus={updateStatus} />
         </div>
-    );
 }
+    
+
 const Contact = ({ contactTitle, conactValue }) => {
     return <div className={classes.contact}><b>{contactTitle}</b>: {conactValue}</div>
 }
-const ProfileData = ({ profile, }) => {
+const ProfileData = ({ profile, isOwner,goToEditMode}) => {
+
     return <div>
+        {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
         <div>
             Full name:{profile.fullName}
         </div>

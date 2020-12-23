@@ -107,5 +107,11 @@ export const savePhoto = (file) => async (dispatch) => {
         dispatch(savePhotoSuccess(response.data.data.photos));
     }
 }
+export const safeProfile = (profile) => async (dispatch) => {
+    let response = await ProfileApi.safeProfile(profile)
 
+    if (response.data.resultCode === 0) {
+        dispatch(savePhotoSuccess(response.data.data.photos));
+    }
+}
 export default profileReducer;

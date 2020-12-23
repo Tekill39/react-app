@@ -45,6 +45,9 @@ export const ProfileApi = {
                 'Content_type': 'multipart/form-data'
             }
         });
+    },
+    safeProfile (profile) {
+        return instanse.put(`profile`, profile);
     }
 }
 export const authApi = {
