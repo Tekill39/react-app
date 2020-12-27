@@ -27,9 +27,10 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, safePr
             <img src={profile.photos.large || userPhoto} />
             {isOwner && <input type={"file"} onChange={onMainFotoSelected} />}
 
-            {editMode
+            {/* {editMode
                 ? <ProfileDataForm profile={profile} onSubmit={onSubmit} />
-                : <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner}/>}
+                :  */}
+                <ProfileData goToEditMode={() => { setEditMode(true) }} profile={profile} isOwner={isOwner}/>
 
             <ProfileStatusWithHoooks status={status} updateStatus={updateStatus} />
         </div>

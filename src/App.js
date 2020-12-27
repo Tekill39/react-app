@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Navbar from './components/Navbar/Navbar';
-import {Route} from "react-router-dom";
+import {Route,Switch,Redirect } from "react-router-dom";
 import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/login/login';
 import { connect } from 'react-redux';
@@ -27,10 +27,14 @@ class App extends React.Component {
       <HeaderContainer/>
       <Navbar />
       <div className='app-wrapper-content'>
+        <Switch>
+          <Route exact path='/' render={()=><Redirect to={"/profile"}/>} />
          <Route path='/profile/:userId?' render = {withSuspense(ProfileContainer)} /> 
          <Route path='/dialogs' render = { withSuspense(DialogsContainer)} />
          <Route path='/users' render = { ()=> <UsersContainer/>} />      
-         <Route path='/login' render = { ()=> <LoginPage/>} />                  
+         <Route path='/login' render = { ()=> <LoginPage/>} />   
+         <Route path='*' render = { ()=><div> 404 NOT FOUND </div> }/> 
+        </Switch>                
       </div>
     </div>
   )
