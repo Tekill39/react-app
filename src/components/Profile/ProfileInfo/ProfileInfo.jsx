@@ -3,16 +3,22 @@ import classes from './ProfileInfo.module.css'
 import Preloader from '../../common/preloader/preloader';
 import ProfileStatusWithHoooks from './ProfileStatusWithHoooks';
 import userPhoto from '../../../assets/img/users.png';
-import editMode from '../ProfileInfo/ProfileStatusWithHoooks';
-import setEditMode from '../ProfileInfo/ProfileStatusWithHoooks';
+import { useState } from 'react';
+// import editMode from '../ProfileInfo/ProfileStatusWithHoooks';
+// import setEditMode from '../ProfileInfo/ProfileStatusWithHoooks';
 import ProfileDataForm from './ProfileDataForm';
 
 
 const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, safeProfile}) => {
 
+// Govno kod need refactoring
+    let [editMode, setEditMode] = useState(false);
+//
     if (!profile) {
         return <Preloader />
     }
+
+    
     const onMainFotoSelected = (e) => {
         if (e.target.files.length) {
             savePhoto(e.target.files[0]);
@@ -40,7 +46,7 @@ const ProfileInfo = ({ profile, status, updateStatus, isOwner, savePhoto, safePr
 const Contact = ({ contactTitle, conactValue }) => {
     return <div className={classes.contact}><b>{contactTitle}</b>: {conactValue}</div>
 }
-const ProfileData = ({ profile, isOwner,goToEditMode}) => {
+const ProfileData = ({ profile, isOwner, goToEditMode}) => {
 
     return <div>
         {isOwner && <div><button onClick={goToEditMode}>edit</button></div>}
@@ -68,5 +74,6 @@ const ProfileData = ({ profile, isOwner,goToEditMode}) => {
         </div>
     </div>
 }
+
 
 export default ProfileInfo;
